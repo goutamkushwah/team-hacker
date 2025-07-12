@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillSwap - Exchange Your Skills</title>
+    <link rel="stylesheet" href="catch.css" />
+
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">SkillSwap</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#browse">Browse Skills</a></li>
+                <li><a href="#my-skills">My Skills</a></li>
+                <li><a href="#messages">Messages</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <button class="btn btn-secondary" onclick="showModal('loginModal')">Login</button>
+                <button class="btn btn-primary" onclick="showModal('signupModal')">Sign Up</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Exchange Skills, Expand Horizons</h1>
+                <p>Connect with people who want to learn what you know, and learn what you want to know</p>
+                <button class="btn btn-primary" onclick="showModal('postSkillModal')">Post Your Skill</button>
+            </div>
+        </section>
+
+        <section class="search-section container">
+            <div class="search-form">
+                <input type="text" class="search-input" placeholder="What skill do you want to learn?" id="searchInput">
+                <button class="btn btn-primary" onclick="searchSkills()">Search</button>
+            </div>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-category="all">All Skills</button>
+                <button class="filter-btn" data-category="programming">Programming</button>
+                <button class="filter-btn" data-category="design">Design</button>
+                <button class="filter-btn" data-category="music">Music</button>
+                <button class="filter-btn" data-category="language">Languages</button>
+                <button class="filter-btn" data-category="cooking">Cooking</button>
+                <button class="filter-btn" data-category="fitness">Fitness</button>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="skills-grid" id="skillsGrid">
+                <!-- Skills will be populated here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Login</h2>
+                <button class="close-btn" onclick="closeModal('loginModal')">&times;</button>
+            </div>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Sign Up</h2>
+                <button class="close-btn" onclick="closeModal('signupModal')">&times;</button>
+            </div>
+            <form id="signupForm">
+                <div class="form-group">
+                    <label for="signupName">Full Name</label>
+                    <input type="text" id="signupName" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail">Email</label>
+                    <input type="email" id="signupEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupLocation">Location</label>
+                    <input type="text" id="signupLocation" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Post Skill Modal -->
+    <div id="postSkillModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Post a Skill</h2>
+                <button class="close-btn" onclick="closeModal('postSkillModal')">&times;</button>
+            </div>
+            <form id="postSkillForm">
+                <div class="form-group">
+                    <label for="skillTitle">Skill Title</label>
+                    <input type="text" id="skillTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="skillCategory">Category</label>
+                    <select id="skillCategory" required>
+                        <option value="">Select a category</option>
+                        <option value="programming">Programming</option>
+                        <option value="design">Design</option>
+                        <option value="music">Music</option>
+                        <option value="language">Languages</option>
+                        <option value="cooking">Cooking</option>
+                        <option value="fitness">Fitness</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="skillDescription">Description</label>
+                    <textarea id="skillDescription" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="skillWanted">What skill do you want in return?</label>
+                    <input type="text" id="skillWanted" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Post Skill</button>
+            </form>
+        </div>
+    </div>
+
+<script src="throw.js"></script>
+
+</body>
+</html>
